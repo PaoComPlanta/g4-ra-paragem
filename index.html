@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RA na paragem · G4</title>
+<script src="lib/aframe-v1.5.0.min.js"></script>
+<script src="lib/mindar-image-aframe.prod.js"></script>
+<style>
+  :root { --esc:#1f3b46; --lar:#eb6834; --claro:#f1f4f4; --tinta:#0b0b0b; }
+  html, body { margin:0; height:100%; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; overflow:hidden; }
+  #barra { position:fixed; left:0; right:0; bottom:0; z-index:10; background:rgba(31,59,70,.92); color:#fff; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; font-size:15px; }
+  #barra button { font:inherit; border:0; border-radius:8px; padding:8px 12px; background:#fff; color:var(--esc); font-weight:600; }
+  #barra button.ativo { background:var(--lar); color:#fff; }
+  #barra label { display:flex; align-items:center; gap:8px; flex:1 1 200px; }
+  #barra input[type=range] { flex:1; }
+  #aviso { position:fixed; top:0; left:0; right:0; z-index:10; background:rgba(0,0,0,.6); color:#fff; padding:10px 14px; font-size:14px; text-align:center; }
+  #semcamara { display:none; position:fixed; inset:0; z-index:5; background:#e9eeee; align-items:center; justify-content:center; padding:16px 16px 120px; box-sizing:border-box; }
+  #semcamara canvas { max-width:100%; max-height:100%; border-radius:16px; box-shadow:0 6px 24px rgba(0,0,0,.25); }
+</style>
+</head>
+<body>
+<div id="aviso">Aponta a câmara ao cartaz da paragem (marcador_paragem.png)</div>
+
+<a-scene id="cena" mindar-image="imageTargetSrc: marcador_paragem.mind; uiScanning: no; uiLoading: yes; filterMinCF: 0.0001; filterBeta: 0.001"
+         color-space="sRGB" renderer="colorManagement: true; physicallyCorrectLights: true" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+  <a-assets><canvas id="painel" width="1024" height="900"></canvas></a-assets>
+  <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+  <a-entity id="alvo" mindar-image-target="targetIndex: 0">
+    <a-plane id="plano" src="#painel" position="0 0.05 0.02" width="1.05" height="0.92" material="shader: flat; transparent: true"></a-plane>
+  </a-entity>
+</a-scene>
+
+<div id="semcamara"><canvas id="painel2d" width="1024" height="900"></canvas></div>
+
+<div id="barra">
+  <button id="b-normal">Dia normal</button>
+  <button id="b-obras" class="ativo">Com obras</button>
+  <label>Agora: <strong id="hora-txt">08:05</strong><input id="hora" type="range" min="420" max="585" step="1" value="485"></label>
+  <button id="b-2d">Ver sem câmara</button>
+</div>
+
+<script>
+let DADOS = null, cenario = "obras", minutos = 485, sem = false;
+const c3d = document.getElementById("painel"), c2d = document.getElementById("painel2d");
+const hm = m => String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0");
+const paraMin = s => { const [h, m] = s.split(":").map(Number); return h * 60 + m; };
+
+function estado(a) {
+  if (a <= 1) return { cor: "#0ca30c", txt: "a horas" };
+  if (a <= 5) return { cor: "#fab219", txt: "pequeno atraso" };
+  return { cor: "#d03b3b", txt: "atrasado" };
+}
+function rr(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+
+function desenhar(cv) {
+  const ctx = cv.getContext("2d"), W = cv.width, H = cv.height;
+  ctx.clearRect(0, 0, W, H);
+  rr(ctx, 8, 8, W - 16, H - 16, 40); ctx.fillStyle = "rgba(31,59,70,0.95)"; ctx.fill();
+  ctx.fillStyle = "#fff"; ctx.font = "700 46px system-ui, sans-serif"; ctx.fillText("João XXI (31 de Janeiro I)", 48, 92);
+  ctx.font = "400 30px system-ui, sans-serif"; ctx.fillStyle = "#cfe0e4";
+  ctx.fillText(`Agora ${hm(minutos)} · ${cenario === "obras" ? "com obras na Av. da Liberdade" : "dia normal"}`, 48, 140);
+  if (!DADOS) { ctx.fillStyle = "#fff"; ctx.fillText("A carregar dados…", 48, 240); return; }
+  const prox = DADOS.cenarios[cenario].filter(p => paraMin(p.real) >= minutos).slice(0, 4);
+  let y = 200;
+  if (!prox.length) { ctx.fillStyle = "#fff"; ctx.font = "400 34px system-ui"; ctx.fillText("Sem mais passagens até às 10h", 48, y + 60); }
+  for (const p of prox) {
+    const e = estado(p.atraso_min), falta = paraMin(p.real) - minutos;
+    rr(ctx, 40, y, W - 80, 150, 24); ctx.fillStyle = "#ffffff"; ctx.fill();
+    rr(ctx, 64, y + 25, 150, 100, 18); ctx.fillStyle = "#eb6834"; ctx.fill();
+    ctx.fillStyle = "#fff"; ctx.font = "800 60px system-ui"; ctx.textAlign = "center"; ctx.fillText(p.linha, 139, y + 97); ctx.textAlign = "left";
+    ctx.fillStyle = "#0b0b0b"; ctx.font = "700 52px system-ui"; ctx.fillText(falta <= 0 ? "a chegar" : `${falta} min`, 244, y + 72);
+    ctx.fillStyle = "#52514e"; ctx.font = "400 28px system-ui"; ctx.fillText(`previsto ${p.prevista} · estimado ${p.real}`, 244, y + 118);
+    ctx.beginPath(); ctx.arc(W - 120, y + 52, 16, 0, 7); ctx.fillStyle = e.cor; ctx.fill();
+    ctx.fillStyle = "#0b0b0b"; ctx.font = "700 34px system-ui"; ctx.textAlign = "right";
+    ctx.fillText(p.atraso_min > 0 ? `+${Math.round(p.atraso_min)} min` : "a horas", W - 64, y + 110); ctx.textAlign = "left";
+    ctx.fillStyle = "#52514e"; ctx.font = "400 24px system-ui"; ctx.textAlign = "right"; ctx.fillText(e.txt, W - 150, y + 60); ctx.textAlign = "left";
+    y += 165;
+  }
+  ctx.fillStyle = "#cfe0e4"; ctx.font = "400 22px system-ui";
+  ctx.fillText("Dados simulados (SUMO) · protótipo G4 VDI", 48, H - 34);
+}
+function atualizar() {
+  desenhar(c3d); desenhar(c2d);
+  const m = document.getElementById("plano").getObject3D("mesh");
+  if (m && m.material && m.material.map) m.material.map.needsUpdate = true;
+  document.getElementById("hora-txt").textContent = hm(minutos);
+}
+fetch("dados_paragem.json").then(r => r.json()).then(d => { DADOS = d; atualizar(); })
+  .catch(() => { document.getElementById("aviso").textContent = "Não foi possível ler dados_paragem.json (abre a página por um servidor, não pelo ficheiro)."; });
+
+document.getElementById("b-normal").onclick = () => { cenario = "normal"; b("b-normal"); atualizar(); };
+document.getElementById("b-obras").onclick = () => { cenario = "obras"; b("b-obras"); atualizar(); };
+function b(id) { for (const x of ["b-normal", "b-obras"]) document.getElementById(x).classList.toggle("ativo", x === id); }
+document.getElementById("hora").oninput = e => { minutos = +e.target.value; atualizar(); };
+document.getElementById("b-2d").onclick = () => {
+  sem = !sem; document.getElementById("semcamara").style.display = sem ? "flex" : "none";
+  document.getElementById("b-2d").textContent = sem ? "Voltar à câmara" : "Ver sem câmara";
+};
+const alvo = document.getElementById("alvo"), aviso = document.getElementById("aviso");
+alvo.addEventListener("targetFound", () => { aviso.style.display = "none"; atualizar(); });
+alvo.addEventListener("targetLost", () => { aviso.style.display = "block"; });
+document.getElementById("cena").addEventListener("arError", () => {
+  aviso.textContent = "Sem câmara disponível. Usa \"Ver sem câmara\".";
+});
+setInterval(atualizar, 1000);
+atualizar();
+</script>
+</body>
+</html>

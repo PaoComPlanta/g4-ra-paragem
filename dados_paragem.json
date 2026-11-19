@@ -1,0 +1,623 @@
+{
+ "paragem": "João XXI (31 de Janeiro I)",
+ "paragem_id": "49",
+ "fonte": "Simulação SUMO do centro de Braga (dia útil de referência, 05/10/2026)",
+ "cenarios": {
+  "normal": [
+   {
+    "linha": "88",
+    "prevista": "07:02",
+    "real": "07:02",
+    "atraso_min": 0.3
+   },
+   {
+    "linha": "43",
+    "prevista": "07:08",
+    "real": "07:07",
+    "atraso_min": -0.6
+   },
+   {
+    "linha": "2",
+    "prevista": "07:15",
+    "real": "07:16",
+    "atraso_min": 0.4
+   },
+   {
+    "linha": "13",
+    "prevista": "07:17",
+    "real": "07:18",
+    "atraso_min": 1.3
+   },
+   {
+    "linha": "41",
+    "prevista": "07:18",
+    "real": "07:18",
+    "atraso_min": 0.3
+   },
+   {
+    "linha": "43",
+    "prevista": "07:18",
+    "real": "07:17",
+    "atraso_min": -1.4
+   },
+   {
+    "linha": "43",
+    "prevista": "07:28",
+    "real": "07:31",
+    "atraso_min": 3.4
+   },
+   {
+    "linha": "12",
+    "prevista": "07:31",
+    "real": "07:31",
+    "atraso_min": 0.1
+   },
+   {
+    "linha": "41",
+    "prevista": "07:34",
+    "real": "07:40",
+    "atraso_min": 6.0
+   },
+   {
+    "linha": "43",
+    "prevista": "07:38",
+    "real": "07:43",
+    "atraso_min": 5.3
+   },
+   {
+    "linha": "43",
+    "prevista": "07:43",
+    "real": "07:45",
+    "atraso_min": 2.0
+   },
+   {
+    "linha": "2",
+    "prevista": "07:45",
+    "real": "07:47",
+    "atraso_min": 1.6
+   },
+   {
+    "linha": "43",
+    "prevista": "07:48",
+    "real": "07:55",
+    "atraso_min": 7.4
+   },
+   {
+    "linha": "41",
+    "prevista": "07:54",
+    "real": "08:02",
+    "atraso_min": 8.1
+   },
+   {
+    "linha": "85",
+    "prevista": "07:54",
+    "real": "07:58",
+    "atraso_min": 3.6
+   },
+   {
+    "linha": "43",
+    "prevista": "07:58",
+    "real": "08:09",
+    "atraso_min": 11.4
+   },
+   {
+    "linha": "2",
+    "prevista": "07:58",
+    "real": "08:00",
+    "atraso_min": 2.2
+   },
+   {
+    "linha": "88",
+    "prevista": "08:02",
+    "real": "08:04",
+    "atraso_min": 1.6
+   },
+   {
+    "linha": "43",
+    "prevista": "08:08",
+    "real": "08:14",
+    "atraso_min": 6.0
+   },
+   {
+    "linha": "43",
+    "prevista": "08:13",
+    "real": "08:25",
+    "atraso_min": 11.5
+   },
+   {
+    "linha": "41",
+    "prevista": "08:14",
+    "real": "08:28",
+    "atraso_min": 14.3
+   },
+   {
+    "linha": "2",
+    "prevista": "08:15",
+    "real": "08:21",
+    "atraso_min": 6.1
+   },
+   {
+    "linha": "43",
+    "prevista": "08:18",
+    "real": "08:34",
+    "atraso_min": 15.5
+   },
+   {
+    "linha": "43",
+    "prevista": "08:28",
+    "real": "08:34",
+    "atraso_min": 5.8
+   },
+   {
+    "linha": "43",
+    "prevista": "08:33",
+    "real": "08:45",
+    "atraso_min": 12.4
+   },
+   {
+    "linha": "13",
+    "prevista": "08:34",
+    "real": "08:41",
+    "atraso_min": 7.5
+   },
+   {
+    "linha": "41",
+    "prevista": "08:34",
+    "real": "08:57",
+    "atraso_min": 23.5
+   },
+   {
+    "linha": "43",
+    "prevista": "08:38",
+    "real": "08:45",
+    "atraso_min": 6.6
+   },
+   {
+    "linha": "43",
+    "prevista": "08:43",
+    "real": "08:56",
+    "atraso_min": 12.9
+   },
+   {
+    "linha": "85",
+    "prevista": "08:44",
+    "real": "09:03",
+    "atraso_min": 19.5
+   },
+   {
+    "linha": "2",
+    "prevista": "08:45",
+    "real": "09:05",
+    "atraso_min": 19.6
+   },
+   {
+    "linha": "12",
+    "prevista": "08:46",
+    "real": "08:48",
+    "atraso_min": 3.0
+   },
+   {
+    "linha": "70",
+    "prevista": "08:48",
+    "real": "08:52",
+    "atraso_min": 4.3
+   },
+   {
+    "linha": "43",
+    "prevista": "08:48",
+    "real": "09:05",
+    "atraso_min": 16.9
+   },
+   {
+    "linha": "41",
+    "prevista": "08:54",
+    "real": "09:14",
+    "atraso_min": 20.6
+   },
+   {
+    "linha": "43",
+    "prevista": "08:58",
+    "real": "09:16",
+    "atraso_min": 18.4
+   },
+   {
+    "linha": "88",
+    "prevista": "09:02",
+    "real": "09:06",
+    "atraso_min": 4.2
+   },
+   {
+    "linha": "43",
+    "prevista": "09:08",
+    "real": "09:27",
+    "atraso_min": 18.9
+   },
+   {
+    "linha": "43",
+    "prevista": "09:13",
+    "real": "09:29",
+    "atraso_min": 15.7
+   },
+   {
+    "linha": "41",
+    "prevista": "09:14",
+    "real": "09:31",
+    "atraso_min": 17.4
+   },
+   {
+    "linha": "2",
+    "prevista": "09:15",
+    "real": "09:31",
+    "atraso_min": 15.3
+   },
+   {
+    "linha": "43",
+    "prevista": "09:18",
+    "real": "09:25",
+    "atraso_min": 7.4
+   },
+   {
+    "linha": "43",
+    "prevista": "09:28",
+    "real": "09:36",
+    "atraso_min": 8.0
+   },
+   {
+    "linha": "41",
+    "prevista": "09:34",
+    "real": "09:35",
+    "atraso_min": 1.6
+   },
+   {
+    "linha": "85",
+    "prevista": "09:34",
+    "real": "09:46",
+    "atraso_min": 11.9
+   },
+   {
+    "linha": "43",
+    "prevista": "09:38",
+    "real": "09:38",
+    "atraso_min": -0.2
+   },
+   {
+    "linha": "43",
+    "prevista": "09:43",
+    "real": "09:43",
+    "atraso_min": 0.4
+   },
+   {
+    "linha": "2",
+    "prevista": "09:45",
+    "real": "09:51",
+    "atraso_min": 5.5
+   },
+   {
+    "linha": "43",
+    "prevista": "09:48",
+    "real": "09:46",
+    "atraso_min": -1.7
+   },
+   {
+    "linha": "41",
+    "prevista": "09:54",
+    "real": "09:55",
+    "atraso_min": 1.1
+   },
+   {
+    "linha": "43",
+    "prevista": "09:58",
+    "real": "09:58",
+    "atraso_min": 0.4
+   }
+  ],
+  "obras": [
+   {
+    "linha": "88",
+    "prevista": "07:02",
+    "real": "07:04",
+    "atraso_min": 1.6
+   },
+   {
+    "linha": "43",
+    "prevista": "07:08",
+    "real": "07:08",
+    "atraso_min": 0.2
+   },
+   {
+    "linha": "2",
+    "prevista": "07:15",
+    "real": "07:17",
+    "atraso_min": 1.9
+   },
+   {
+    "linha": "13",
+    "prevista": "07:17",
+    "real": "07:20",
+    "atraso_min": 2.5
+   },
+   {
+    "linha": "41",
+    "prevista": "07:18",
+    "real": "07:21",
+    "atraso_min": 3.4
+   },
+   {
+    "linha": "43",
+    "prevista": "07:18",
+    "real": "07:20",
+    "atraso_min": 2.2
+   },
+   {
+    "linha": "43",
+    "prevista": "07:28",
+    "real": "07:37",
+    "atraso_min": 8.8
+   },
+   {
+    "linha": "12",
+    "prevista": "07:31",
+    "real": "07:31",
+    "atraso_min": 0.8
+   },
+   {
+    "linha": "41",
+    "prevista": "07:34",
+    "real": "07:46",
+    "atraso_min": 11.7
+   },
+   {
+    "linha": "43",
+    "prevista": "07:38",
+    "real": "07:44",
+    "atraso_min": 6.3
+   },
+   {
+    "linha": "43",
+    "prevista": "07:43",
+    "real": "07:53",
+    "atraso_min": 10.2
+   },
+   {
+    "linha": "2",
+    "prevista": "07:45",
+    "real": "07:47",
+    "atraso_min": 1.3
+   },
+   {
+    "linha": "43",
+    "prevista": "07:48",
+    "real": "08:04",
+    "atraso_min": 16.2
+   },
+   {
+    "linha": "41",
+    "prevista": "07:54",
+    "real": "08:06",
+    "atraso_min": 11.9
+   },
+   {
+    "linha": "85",
+    "prevista": "07:54",
+    "real": "07:58",
+    "atraso_min": 4.0
+   },
+   {
+    "linha": "43",
+    "prevista": "07:58",
+    "real": "08:06",
+    "atraso_min": 7.8
+   },
+   {
+    "linha": "2",
+    "prevista": "07:58",
+    "real": "08:00",
+    "atraso_min": 2.0
+   },
+   {
+    "linha": "88",
+    "prevista": "08:02",
+    "real": "08:05",
+    "atraso_min": 3.0
+   },
+   {
+    "linha": "43",
+    "prevista": "08:08",
+    "real": "08:16",
+    "atraso_min": 8.2
+   },
+   {
+    "linha": "43",
+    "prevista": "08:13",
+    "real": "08:22",
+    "atraso_min": 9.1
+   },
+   {
+    "linha": "41",
+    "prevista": "08:14",
+    "real": "08:30",
+    "atraso_min": 16.3
+   },
+   {
+    "linha": "2",
+    "prevista": "08:15",
+    "real": "08:17",
+    "atraso_min": 1.6
+   },
+   {
+    "linha": "43",
+    "prevista": "08:18",
+    "real": "08:49",
+    "atraso_min": 31.0
+   },
+   {
+    "linha": "43",
+    "prevista": "08:28",
+    "real": "08:55",
+    "atraso_min": 27.2
+   },
+   {
+    "linha": "43",
+    "prevista": "08:33",
+    "real": "08:53",
+    "atraso_min": 20.4
+   },
+   {
+    "linha": "13",
+    "prevista": "08:34",
+    "real": "08:42",
+    "atraso_min": 7.8
+   },
+   {
+    "linha": "41",
+    "prevista": "08:34",
+    "real": "08:55",
+    "atraso_min": 21.2
+   },
+   {
+    "linha": "43",
+    "prevista": "08:38",
+    "real": "09:10",
+    "atraso_min": 31.8
+   },
+   {
+    "linha": "43",
+    "prevista": "08:43",
+    "real": "09:07",
+    "atraso_min": 23.9
+   },
+   {
+    "linha": "85",
+    "prevista": "08:44",
+    "real": "08:56",
+    "atraso_min": 12.1
+   },
+   {
+    "linha": "2",
+    "prevista": "08:45",
+    "real": "08:57",
+    "atraso_min": 12.1
+   },
+   {
+    "linha": "12",
+    "prevista": "08:46",
+    "real": "08:47",
+    "atraso_min": 1.5
+   },
+   {
+    "linha": "70",
+    "prevista": "08:48",
+    "real": "08:48",
+    "atraso_min": 0.7
+   },
+   {
+    "linha": "43",
+    "prevista": "08:48",
+    "real": "09:19",
+    "atraso_min": 30.7
+   },
+   {
+    "linha": "41",
+    "prevista": "08:54",
+    "real": "09:24",
+    "atraso_min": 30.3
+   },
+   {
+    "linha": "43",
+    "prevista": "08:58",
+    "real": "09:28",
+    "atraso_min": 30.3
+   },
+   {
+    "linha": "88",
+    "prevista": "09:02",
+    "real": "09:04",
+    "atraso_min": 2.7
+   },
+   {
+    "linha": "43",
+    "prevista": "09:08",
+    "real": "09:30",
+    "atraso_min": 21.6
+   },
+   {
+    "linha": "43",
+    "prevista": "09:13",
+    "real": "09:38",
+    "atraso_min": 25.4
+   },
+   {
+    "linha": "41",
+    "prevista": "09:14",
+    "real": "09:34",
+    "atraso_min": 19.9
+   },
+   {
+    "linha": "2",
+    "prevista": "09:15",
+    "real": "09:30",
+    "atraso_min": 14.2
+   },
+   {
+    "linha": "43",
+    "prevista": "09:18",
+    "real": "09:45",
+    "atraso_min": 26.5
+   },
+   {
+    "linha": "43",
+    "prevista": "09:28",
+    "real": "09:47",
+    "atraso_min": 19.4
+   },
+   {
+    "linha": "41",
+    "prevista": "09:34",
+    "real": "09:47",
+    "atraso_min": 13.3
+   },
+   {
+    "linha": "85",
+    "prevista": "09:34",
+    "real": "09:47",
+    "atraso_min": 12.8
+   },
+   {
+    "linha": "43",
+    "prevista": "09:38",
+    "real": "09:49",
+    "atraso_min": 10.8
+   },
+   {
+    "linha": "43",
+    "prevista": "09:43",
+    "real": "09:53",
+    "atraso_min": 10.4
+   },
+   {
+    "linha": "2",
+    "prevista": "09:45",
+    "real": "09:54",
+    "atraso_min": 8.8
+   },
+   {
+    "linha": "43",
+    "prevista": "09:48",
+    "real": "09:56",
+    "atraso_min": 8.4
+   },
+   {
+    "linha": "41",
+    "prevista": "09:54",
+    "real": "10:01",
+    "atraso_min": 7.3
+   },
+   {
+    "linha": "43",
+    "prevista": "09:58",
+    "real": "10:01",
+    "atraso_min": 2.7
+   }
+  ]
+ }
+}
